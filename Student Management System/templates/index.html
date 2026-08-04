@@ -49,14 +49,20 @@
       <div class="card-body">
         <form action="/add" method="POST">
           <div class="row g-3">
-            <div class="col-md-3">
+            <div class="col-md-2">
               <input type="text" class="form-control" name="name" placeholder="Student Name" required>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-1">
+              <input type="number" class="form-control" name="age" placeholder="Age" required>
+              </div>
+            <div class="col-md-2">
               <input type="text" class="form-control" name="course" placeholder="Course Name" required>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <input type="email" class="form-control" name="email" placeholder="Email Address" required>
+            </div>
+            <div class="col-md-2">
+              <input type="text" class="form-control" name="contact" placeholder="Contact Number" required>
             </div>
             <div class="col-md-2">
               <button type="submit" class="btn btn-primary w-100 fw-semibold">
@@ -77,8 +83,10 @@
               <tr>
                 <th class="ps-4">ID</th>
                 <th>Name</th>
+                <th>Age</th>
                 <th>Course</th>
                 <th>Email</th>
+                <th>Contact</th>
                 <th class="text-end pe-4">Action</th>
               </tr>
             </thead>
@@ -88,8 +96,10 @@
 
                 <td class="ps-4 fw-bold text-muted">{{ student.id }}</td>
                 <td class="fw-semibold">{{ student.name }}</td>
+                <td>{{ student.age }}</td>
                 <td><span class="badge bg-light text-dark border px-3 py-2">{{ student.course }}</span></td>
                 <td>{{ student.email }}</td>
+                <td>{{ student.contact }}</td>
                 <td class="text-end pe-4">
 
                   <a href="/delete/{{ student.id }}" class="btn btn-outline-danger btn-sm me-1"
@@ -122,12 +132,20 @@
                               <input type="text" class="form-control" name="name" value="{{ student.name }}" required>
                             </div>
                             <div class="mb-3">
+                              <label class="form-label fw-semibold text-dark">Age</label>
+                              <input type="number" class="form-control" name="age" value="{{ student.age }}" required>
+                            </div>
+                            <div class="mb-3">
                               <label class="form-label fw-semibold text-dark">Course</label>
                               <input type="text" class="form-control" name="course" value="{{ student.course }}" required>
                             </div>
                             <div class="mb-3">
                               <label class="form-label fw-semibold text-dark">Email</label>
                               <input type="email" class="form-control" name="email" value="{{ student.email }}" required>
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label fw-semibold text-dark">Contact</label>
+                              <input type="text" class="form-control" name="contact" value="{{ student.contact }}" required>
                             </div>
                           </div>
                           <div class="modal-footer bg-light border-top-0">

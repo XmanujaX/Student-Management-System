@@ -26,12 +26,14 @@ def index():
 @app.route('/add', methods=['POST'])
 def add_student():
     name = request.form['name']
+    age = request.form['age']
     course = request.form['course']
     email = request.form['email']
+    contact = request.form['contact']
 
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute('INSERT INTO students (name, course, email) VALUES (%s, %s, %s)', (name, course, email))
+    cursor.execute('INSERT INTO students (name, age, course, email, contact) VALUES (%s, %s, %s, %s, %s)', (name, age, course, email, contact))
     conn.commit()
     cursor.close()
     conn.close()
@@ -42,12 +44,14 @@ def add_student():
 def update_student():
     id = request.form['id']
     name = request.form['name']
+    age = request.form['age']
     course = request.form['course']
     email = request.form['email']
+    contact = request.form['contact']
     
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute('UPDATE students SET name=%s, course=%s, email=%s WHERE id=%s', (name, course, email, id))
+    cursor.execute('UPDATE students SET name=%s, age=%s, course=%s, email=%s, contact=%s WHERE id=%s', (name, age, course, email, contact, id))
     conn.commit()
     cursor.close()
     conn.close()
@@ -66,4 +70,4 @@ def delete_student(id):
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
