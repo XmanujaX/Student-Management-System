@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2026 at 09:59 PM
+-- Generation Time: Aug 05, 2026 at 07:47 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,8 +42,11 @@ CREATE TABLE `students` (
 
 INSERT INTO `students` (`id`, `name`, `age`, `course`, `email`, `contact`) VALUES
 (1, 'Manuja Perera', 20, 'Data Science', 'manujaperera2005@gmail.com', '0752235897'),
-(2, 'Kasun Liyanage', NULL, 'Software Engineer', 'kasunliyanage123@mail.com', NULL),
-(3, 'Pubudu Perera', NULL, 'Computer Science', 'pubuduperera123@gmail.com', NULL);
+(2, 'Kasun Liyanage', 21, 'Software Engineer', 'kasunliyanage123@mail.com', '0774523685'),
+(3, 'Pubudu Perera', 25, 'Computer Science', 'pubuduperera123@gmail.com', '0765874236'),
+(4, 'Sanduni Silva', 23, 'Computer Network', 'sandunisilva123@gmail.com', '0714572395'),
+(5, 'Susanth Hewage ', 26, 'Data Science', 'susanthhewage123@gmail.com', '0745412421'),
+(6, 'Nuwani Sandamini', 20, 'Data Science', 'nuwanisandamini123@gmail.com', '0754125852');
 
 --
 -- Indexes for dumped tables
@@ -63,7 +66,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
