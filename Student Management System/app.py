@@ -21,7 +21,28 @@ def index():
     students = cursor.fetchall()
     cursor.close()
     conn.close()
-    return render_template('index.html', students=students)
+
+    total_students = len(students)
+
+    courses = [s['course'] for s in students if s.get('course')]
+    total_courses = len(set(courses))
+
+    ages = [s['age'] for s in students if s.get('age')]
+    avg_age = round(sum(ages) / len(ages), 1) if ages else 0
+
+    if courses:
+        top_course = max(set(courses), key=courses.count)
+    else:
+        top_course = '-'
+
+    return render_template(
+        'index.html',
+        students=students,
+        total_students=total_students,
+        total_courses=total_courses,
+        avg_age=avg_age,
+        top_course=top_course
+    )
 
 @app.route('/add', methods=['POST'])
 def add_student():

@@ -9,6 +9,22 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    .stat-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15) !important;
+    }
+    .stat-icon-wrap {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.18);
+    }
+  </style>
 </head>
 
 <body class="bg-light">
@@ -25,15 +41,59 @@
   <div class="container pb-5">
 
 
-    <div class="row mb-4">
-      <div class="col-md-4">
-        <div class="card text-white bg-primary bg-gradient shadow border-0 rounded-3">
+    <div class="row mb-4 g-3">
+      <div class="col-6 col-md-3">
+        <div class="card stat-card text-white bg-primary bg-gradient shadow border-0 rounded-4 h-100">
           <div class="card-body d-flex align-items-center justify-content-between p-4">
             <div>
-              <h6 class="text-uppercase fw-semibold mb-1 opacity-75">Total Registered Students</h6>
-              <h2 class="display-5 fw-bold mb-0">{{ students|length }}</h2>
+              <h6 class="text-uppercase fw-semibold mb-1 opacity-75" style="font-size: 0.72rem;">Total Students</h6>
+              <h2 class="fw-bold mb-0">{{ total_students }}</h2>
             </div>
-            <i class="fa-solid fa-users fa-3x opacity-50"></i>
+            <div class="stat-icon-wrap d-flex align-items-center justify-content-center">
+              <i class="fa-solid fa-users fa-lg"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="card stat-card text-white bg-success bg-gradient shadow border-0 rounded-4 h-100">
+          <div class="card-body d-flex align-items-center justify-content-between p-4">
+            <div>
+              <h6 class="text-uppercase fw-semibold mb-1 opacity-75" style="font-size: 0.72rem;">Total Courses</h6>
+              <h2 class="fw-bold mb-0">{{ total_courses }}</h2>
+            </div>
+            <div class="stat-icon-wrap d-flex align-items-center justify-content-center">
+              <i class="fa-solid fa-book fa-lg"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="card stat-card text-white shadow border-0 rounded-4 h-100" style="background: linear-gradient(135deg, #8e2de2, #4a00e0);">
+          <div class="card-body d-flex align-items-center justify-content-between p-4">
+            <div>
+              <h6 class="text-uppercase fw-semibold mb-1 opacity-75" style="font-size: 0.72rem;">Average Age</h6>
+              <h2 class="fw-bold mb-0">{{ avg_age }}</h2>
+            </div>
+            <div class="stat-icon-wrap d-flex align-items-center justify-content-center">
+              <i class="fa-solid fa-cake-candles fa-lg"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="card stat-card text-white bg-warning bg-gradient shadow border-0 rounded-4 h-100">
+          <div class="card-body d-flex align-items-center justify-content-between p-4">
+            <div class="text-truncate">
+              <h6 class="text-uppercase fw-semibold mb-1 opacity-75" style="font-size: 0.72rem;">Top Course</h6>
+              <h5 class="fw-bold mb-0 text-truncate" title="{{ top_course }}">{{ top_course }}</h5>
+            </div>
+            <div class="stat-icon-wrap d-flex align-items-center justify-content-center flex-shrink-0">
+              <i class="fa-solid fa-trophy fa-lg"></i>
+            </div>
           </div>
         </div>
       </div>
